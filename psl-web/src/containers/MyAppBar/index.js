@@ -14,7 +14,11 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import './style.css';
 
-const pages = ['Home', 'Services', 'About'];
+const pages = [
+    ['Home', '/'], 
+    ['Services', 'services'], 
+    ['About', 'about']
+];
 
 
 const MyAppBar = () => {
@@ -65,9 +69,9 @@ const MyAppBar = () => {
                                     {pages.map((page) => (
                                         <MenuItem key={page} onClick={handleCloseNavMenu}>
                                             <Typography textAlign="center">
-                                            <Link style={{textDecoration: "none", color: "inherit"}} to="/">
-                                                {page}
-                                            </Link>
+                                                <Link style={{textDecoration: "none", color: "inherit"}} to={page[1]}>
+                                                    {page[0]}
+                                                </Link>
                                             </Typography>
                                         </MenuItem>
                                     ))}
@@ -88,8 +92,8 @@ const MyAppBar = () => {
                                     onClick={handleCloseNavMenu}
                                     sx={{ my: 2, color: 'white', display: 'block' }}
                                 >
-                                    <Link style={{textDecoration: "none", color: "inherit"}} to="/">
-                                        {page}
+                                    <Link style={{textDecoration: "none", color: "inherit"}} to={page[1]}>
+                                        {page[0]}
                                     </Link>
                                 </Button>
                             ))}
