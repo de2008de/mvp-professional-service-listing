@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var { createTables } = require('./db');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var serviceRouter = require('./routes/service');
 
 const apiUrl = '/api/v1/'
@@ -23,8 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// Set Rest API route here
 app.use(apiUrl + 'service', serviceRouter);
 
 // catch 404 and forward to error handler
